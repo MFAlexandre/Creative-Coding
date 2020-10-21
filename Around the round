@@ -1,0 +1,107 @@
+const totalFrames = 100;
+let counter = 0;
+const record = false;
+
+
+var r;
+var g;
+var b;
+var a;
+
+
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  let rect
+  let circle
+  let percent = 0;
+
+  if (record) {
+    percent = float(counter) / totalFrames;
+  } else {
+    percent = float(counter % totalFrames) / totalFrames;
+  }
+  render(percent);
+  if (record) {
+    save('output/gif-' + nf(counter, 5) + '.png');
+    if (counter == totalFrames - 1) {
+      noLoop();
+    }
+  }
+  counter++;
+  
+  
+   r = random(100); // r is a random number between 0 - 255
+  g = random(100,200); // g is a random number betwen 100 - 200
+  b = random(100); // b is a random number between 0 - 100
+  a = random(200); // a is a random number between 200 - 255
+}
+
+function render(percent) {
+  let angle = map(percent, 0, 1, 0, TWO_PI);
+  background(0);
+  translate(width / 2, height / 2);
+  rotate(angle);
+  //stroke(250);
+  fill(250);
+  rectMode(CENTER);
+  circle(0, 60,260);
+  
+   fill(0)
+  circle(0, 170,10);
+  
+  //fill(0)
+  //circle(90, 140,10);
+  
+  fill(0)
+  circle(0, 40,200);
+  
+   fill(250)
+  circle(70, 60,10);
+  
+  //strokeWeight(2)
+  fill(250);
+  circle(0, 5, 100);
+  
+  
+  rectMode(CENTER);
+  //strokeWeight(2)
+  fill(0);
+  circle(0,10,50);
+  
+  //fill(250);
+  //circle(5, 15,10);
+  
+  fill(250);
+  circle(0,0,10);
+  
+  
+
+//circle(120, 0, 10);
+//fill(50,100,100);
+//circle(120, 90,10);
+rectMode(CENTER);
+//line(0, 0, 60, 300);
+//line(10, 0, 0,55);
+//line(10, 0, 0,55);
+//line(10, 0, 0,55);
+
+  
+//Traits intérieur premier rond  
+//line(0, 0, 0,500);
+  
+
+
+//line(5, 0, 0,50);
+
+
+ 
+ 
+ 
+  
+ 
+}
+
